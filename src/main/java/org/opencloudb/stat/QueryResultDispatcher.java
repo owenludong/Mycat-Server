@@ -54,7 +54,7 @@ public class QueryResultDispatcher {
 					try {
 						listener.onQuery( query );
 					} catch(Exception e) {
-						LOGGER.error(e);
+						LOGGER.error("sql = " + query.getSql(),e);
 					}
 				}
 			}

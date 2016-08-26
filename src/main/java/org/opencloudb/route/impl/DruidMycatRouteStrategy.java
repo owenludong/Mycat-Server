@@ -29,7 +29,7 @@ public class DruidMycatRouteStrategy extends AbstractRouteStrategy {
 	public RouteResultset routeNormalSqlWithAST(SchemaConfig schema,
 			String stmt, RouteResultset rrs, String charset,
 			LayerCachePool cachePool) throws SQLNonTransientException {
-		
+
 		/**
 		 *  只有mysql时只支持mysql语法
 		 */
@@ -50,7 +50,7 @@ public class DruidMycatRouteStrategy extends AbstractRouteStrategy {
 			statement = parser.parseStatement();
             visitor = new MycatSchemaStatVisitor();
 		} catch (Exception t) {
-	        LOGGER.error("DruidMycatRouteStrategyError", t);
+	        LOGGER.error("DruidMycatRouteStrategyError sql = " + stmt, t);
 			throw new SQLSyntaxErrorException(t);
 		}
 

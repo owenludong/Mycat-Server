@@ -268,6 +268,15 @@ public class SplitUtil {
         return list.toArray(new String[list.size()]);
     }
 
+    public static void main(String[] args) {
+        //String src = "multipleDn$0-99";
+        //newDBMangoErp000  newDBMangoErp099
+        String src = "newDBMangoErp$0-99";
+        String theDataNodes[] = SplitUtil.split(src, ',', '$', '-');
+        System.out.println(theDataNodes); //multipleDn0 .. multipleDn0
+
+    }
+
     public static String[] splitByByteSize(String string, int size) {
         if (size < 2)
         {

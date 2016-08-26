@@ -16,11 +16,11 @@ import com.alibaba.druid.sql.dialect.mysql.ast.statement.MySqlUpdateStatement;
 public class DruidUpdateParser extends DefaultDruidParser {
 	@Override
 	public void statementParse(SchemaConfig schema, RouteResultset rrs, SQLStatement stmt) throws SQLNonTransientException {
-		if(ctx.getTables() != null && ctx.getTables().size() > 1 && !schema.isNoSharding()) {
+		/*if(ctx.getTables() != null && ctx.getTables().size() > 1 && !schema.isNoSharding()) {
 			String msg = "multi table related update not supported,tables:" + ctx.getTables();
 			LOGGER.warn(msg);
 			throw new SQLNonTransientException(msg);
-		}
+		}*/
 		MySqlUpdateStatement update = (MySqlUpdateStatement)stmt;
 		String tableName = StringUtil.removeBackquote(update.getTableName().getSimpleName().toUpperCase());
 		
